@@ -34,11 +34,15 @@ export default defineNuxtConfig({
         'Cross-Origin-Opener-Policy': 'same-origin',
       },
     },
-    // optimizeDeps: {
-    //   exclude: [
-    //     'monaco-volar',
-    //   ],
-    // },
+    optimizeDeps: {
+      include: [
+        'monaco-editor/esm/vs/editor/editor.worker',
+        '@volar/cdn',
+        '@vue/language-service',
+        '@volar/monaco/worker',
+        'typescript',
+      ],
+    },
   },
   vue: {
     defineModel: true,
@@ -62,8 +66,6 @@ export default defineNuxtConfig({
     },
   },
   devtools: {
-    // This does not work because it conflicts with WebContainer's headers requirement
-    // Disabled for now and will find a solution later
-    enabled: false,
+    enabled: true,
   },
 })
